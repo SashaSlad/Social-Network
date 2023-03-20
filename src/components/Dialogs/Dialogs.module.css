@@ -1,0 +1,14 @@
+.dialogs{
+	display: grid;
+	grid-template-columns: 3fr 0.07fr 7fr;
+	background-color: rgb(192, 136, 244);
+	border-radius: 0 0 25px 0;
+}
+
+
+.line{
+	background-color: rgb(86, 8, 8);
+}
+.sendMessageWrapp{
+	padding: 15px 0 15px 10px;
+}
