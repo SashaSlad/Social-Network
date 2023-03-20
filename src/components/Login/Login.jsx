@@ -5,7 +5,8 @@ import { Input } from "../Common/FormsControls/FormsControls";
 import { maxLengthCreator, required } from "../utils/validators/validators";
 import { connect } from "react-redux";
 import { login } from "../../Redux/auth-reduser";
-import { Link } from 'react-router-dom';
+// import { Link, redirect } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import style from "./../Common/FormsControls/FormsControls.module.css"
 
 
@@ -17,7 +18,7 @@ const LoginForm = (props) => {
 		<form onSubmit={props.handleSubmit}>
 			<div><Field placeholder="Email" name={"email"} component={Input} validate={[required, maxLength30]} /></div>
 			<div><Field placeholder="Passwosd" name={"password"} component={Input} validate={[required, maxLength30]} type={"password"} /></div>
-			<div><Field type={"checkbox"} name={"rememberMe"} component={Input} />Remember me</div>
+			<div className={s.remme}><Field type={"checkbox"} name={"rememberMe"} component={Input} />Remember me</div>
 			{props.error &&
 				<div className={style.formSummaryError}>
 					{props.error}
@@ -36,8 +37,13 @@ const Login = (props) => {
 		// console.log(props.login(formData.email, formData.password, formData.rememberMe))
 	}
 
+	let navigate = useNavigate();
 	if (props.isAuth) {
-		return (<Link to={"/profile"} />)
+		return (
+			// redirect("/profile") 
+			navigate("/profile")
+			// <Link to={"/profile"} />
+		)
 	}
 
 	return (

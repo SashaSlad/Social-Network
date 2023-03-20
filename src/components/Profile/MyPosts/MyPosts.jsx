@@ -34,14 +34,14 @@ const MyPosts = (props) => {
 		)
 	}
 
-	const AddPstFormRedux = reduxForm({ form: 'profileAddNewPostForm' })(addNewPostForm);
+	const AddPostFormRedux = reduxForm({ form: 'profileAddNewPostForm' })(addNewPostForm);
 
 	return (
 		<div className={s.myposts}>
 
 			<br />
 			<div className={s.textar}>
-				<AddPstFormRedux onSubmit={onaddPost} />
+				<AddPostFormRedux onSubmit={onaddPost} />
 			</div>
 			<div className={s.posts}>
 				{postsElements}

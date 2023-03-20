@@ -5,11 +5,13 @@
 
 .formControl.error span{
 	font: cursive;
-	color: red;
+	font-weight: 700;
+	color: rgb(235, 109, 109);
 }
 
 .formSummaryError {
-	border: red 3px solid;
+	border: red 3px dotted;
 	padding: 5px;
-	color: rgb(108, 36, 36);
+	color: rgb(159, 179, 231);
+	font-weight: 700;
 }
