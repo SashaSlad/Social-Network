@@ -7,8 +7,14 @@ import { maxLengthCreator, required } from "../../utils/validators/validators";
 import { Textarea } from "../../Common/FormsControls/FormsControls";
 
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
 
+	// shouldComponentUpdate(nextProps, nextState) {
+	// 	return nextProps !== this.nextProps || nextState !== this.nextState;
+	// }
+
+
+	console.log("ypyyoyoyo")
 	let postsElements = props.postsData.map(post => <Post message={post.message} likes={post.likes} id={post.id} />);
 
 	//let newPostElement = React.createRef();
@@ -38,7 +44,6 @@ const MyPosts = (props) => {
 
 	return (
 		<div className={s.myposts}>
-
 			<br />
 			<div className={s.textar}>
 				<AddPostFormRedux onSubmit={onaddPost} />
@@ -49,5 +54,5 @@ const MyPosts = (props) => {
 		</div >
 	)
 }
-
+)
 export default MyPosts;
