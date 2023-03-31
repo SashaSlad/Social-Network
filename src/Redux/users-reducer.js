@@ -1,5 +1,5 @@
 import { usersAPI } from "../api/api";
-import { updateObjectInArray } from "../components/utils/objects-helpers.js/object-helpers";
+import { updateObjectInArray } from "../components/utils/objects-helpers/object-helpers";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
