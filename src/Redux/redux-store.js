@@ -1,5 +1,5 @@
 //import { combineReducers } from '@reduxjs/toolkit';
-import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
+import { applyMiddleware, combineReducers, compose, legacy_createStore as createStore } from 'redux';
 import profileReducer from "./pofile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import usersReducer from './users-reducer';
@@ -18,8 +18,13 @@ let redusers = combineReducers({
 	app: appReduser
 });
 
-let store = createStore(redusers, applyMiddleware(thunkMiddleware));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(redusers, composeEnhancers(applyMiddleware(thunkMiddleware)));
 
-window.store = store;
+window.__store__ = store;
+
+
+// let store = createStore(redusers, applyMiddleware(thunkMiddleware));
+// window.store = store;
 
 export default store;

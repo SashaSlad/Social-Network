@@ -4,7 +4,7 @@ import { updateObjectInArray } from "../components/utils/objects-helpers/object-
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
-const SET_CORRENT_PAGE = 'SET_CORRENT_PAGE';
+const SET_CARRENT_PAGE = 'SET_CARRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
@@ -45,7 +45,7 @@ const usersReducer = (state = initialState, action) => {
 			return { ...state, users: action.users }
 		}
 
-		case SET_CORRENT_PAGE: {
+		case SET_CARRENT_PAGE: {
 			return { ...state, currentPage: action.currentPage }
 		}
 
@@ -78,7 +78,7 @@ export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId });
 
 export const setUsers = (users) => ({ type: SET_USERS, users });
 
-export const setCurrentPage = (currentPage) => ({ type: SET_CORRENT_PAGE, currentPage });
+export const setCurrentPage = (currentPage) => ({ type: SET_CARRENT_PAGE, currentPage });
 
 export const setTotalUsersCount = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, count: totalUsersCount });
 
