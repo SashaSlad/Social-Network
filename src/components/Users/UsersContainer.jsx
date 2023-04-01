@@ -16,11 +16,13 @@ class UsersContainer extends React.Component {
 	// }
 
 	componentDidMount() {
-		this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+		const { currentPage, pageSize } = this.props
+		this.props.requestUsers(currentPage, pageSize);
 	}
 
 	onPageChanged = (pageNumber) => {
-		this.props.requestUsers(pageNumber, this.props.pageSize);
+		const { pageSize } = this.props
+		this.props.requestUsers(pageNumber, pageSize);
 	}
 
 	render() {
@@ -36,7 +38,6 @@ class UsersContainer extends React.Component {
 					unfollow={this.props.unfollow}
 					follow={this.props.follow}
 					followingInProgress={this.props.followingInProgress}
-
 				/>
 			</>
 		);
@@ -68,36 +69,3 @@ let mapStateToProps = (state) => {
 }
 
 export default compose(connect(mapStateToProps, { follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers }))(UsersContainer)
-
-// ------- з перевіркою на логін -------
-// export default compose(connect(mapStateToProps, { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers }), withAuthRedirect)(UsersContainer)
-
-
-// export default connect(mapStateToProps, { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers })(UsersContainer);
-
-// let mapDispatchToProps = (dispatch) => {
-// 	return {
-// 		follow: (userId) => {
-// 			dispatch(followAC(userId));
-// 		},
-// 		unfollow: (userId) => {
-// 			dispatch(unfollowAC(userId));
-// 		},
-// 		setUsers: (users) => {
-// 			dispatch(setUsersAC(users));
-// 		},
-// 		setCurrentPage: (pageNumber) => {
-// 			dispatch(setCurrentPageAC(pageNumber));
-// 		},
-// 		setTotalUsersCount: (totalCount) => {
-// 			dispatch(setTotalUsersCountAC(totalCount));
-// 		},
-// 		toggleIsFetching: (isFetching) => {
-// 			dispatch(toggleIsFetchingAC(isFetching));
-// 		}
-// 	}
-// }
-
-
-
-//export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

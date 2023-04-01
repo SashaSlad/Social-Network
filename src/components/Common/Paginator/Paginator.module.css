@@ -1,0 +1,13 @@
+.pages {
+	color: rgb(156, 186, 176);
+	letter-spacing: 2px;
+	font-size: 23px;
+
+}
+
+.selectedPage {
+	font-size: 30px;
+	color: brown;
+	font-weight: 900;
+
+}
