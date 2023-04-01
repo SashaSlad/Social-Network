@@ -1,5 +1,4 @@
 import { expect, test } from '@jest/globals';
-import React from 'react';
 import profileReducer, { addPostActionCreator, deletePost } from "./pofile-reducer";
 
 let state = {
@@ -18,7 +17,7 @@ test('new post should be added, length of posts should be incremented', () => {
 	let newState = profileReducer(state, action);
 
 	//  3. expections
-	expect(newState.posts.length).toBe(4);
+	expect(newState.postsData.length).toBe(4);
 });
 
 test('new post message should be correct', () => {
@@ -29,7 +28,7 @@ test('new post message should be correct', () => {
 	let newState = profileReducer(state, action);
 
 	//  3. expections
-	expect(newState.posts[4].message).toBe("first project");
+	expect(newState.postsData[3].message).toBe("first project");
 });
 
 test('after deleting length of messages should be decrement', () => {
@@ -40,7 +39,7 @@ test('after deleting length of messages should be decrement', () => {
 	let newState = profileReducer(state, action);
 
 	//  3. expections
-	expect(newState.posts.length).toBe(3);
+	expect(newState.postsData.length).toBe(3);
 });
 
 test('after deleting length of messages should be decrement if id is incorrect', () => {
@@ -51,5 +50,5 @@ test('after deleting length of messages should be decrement if id is incorrect',
 	let newState = profileReducer(state, action);
 
 	//  3. expections
-	expect(newState.posts.length).toBe(4);
+	expect(newState.postsData.length).toBe(3);
 });

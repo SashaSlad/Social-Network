@@ -26,6 +26,11 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
+	"jest": {
+		"transformIgnorePatterns": [
+			"node_modules/(?!(react-leaftlet|@react-leaftlet|d3-*|axios))"
+		]
+	},
 	"eslintConfig": {
 		"extends": [
 			"react-app",
