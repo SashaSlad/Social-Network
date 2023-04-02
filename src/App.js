@@ -12,7 +12,9 @@ import Navbar from './components/Navbar/Navbar';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import { initializeApp } from "./Redux/app-reduser";
-
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './Redux/redux-store'
 
 class App extends Component {
 
@@ -46,10 +48,18 @@ const mapStateToProps = (state) => ({
 	initialized: state.app.initialized
 })
 
-export default compose(
+let AppContainer = compose(
 	withRouter,
 	connect(mapStateToProps, { initializeApp }))(App);
 
+const SocNetworkApp = (props) => {
+	return (
+		<BrowserRouter>
+			<Provider store={store}>
+				<AppContainer />
+			</Provider>
+		</BrowserRouter>
+	)
+}
 
-
-// export default App;
+export default SocNetworkApp;
