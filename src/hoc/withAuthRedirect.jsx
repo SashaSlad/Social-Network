@@ -14,14 +14,11 @@ export const withAuthRedirect = (Component) => {
 			if (!this.props.isAuth) return (
 				<Navigate to="/login" />
 			);
-
 			return <Component {...this.props} />
 		}
 	}
 
-
 	let ConnectedAuthRedirectComponent = connect(mapStateToPropsForRedirect)(RedirectComponent);
-
 
 	return ConnectedAuthRedirectComponent;
 }
