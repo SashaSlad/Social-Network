@@ -7,9 +7,10 @@ import User from "./User";
 let Users = (props) => {
 
 	return <div className={styles.wrapper}>
-
-		<Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged}
-			totalUsersCount={props.totalUsersCount} pageSize={props.pageSize} />
+		<div className={styles.paginator}>
+			<Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged}
+				totalItemsCount={props.totalUsersCount} pageSize={props.pageSize} />
+		</div>
 		<div>
 			{
 				props.users.map(u =>

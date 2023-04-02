@@ -50,6 +50,11 @@ button:hover {
 	margin: 15px;
 
 }
+
+.paginator {
+	padding: 15px;
+}
+
 /* 
 .pages {
 	color: rgb(156, 186, 176);
