@@ -10,7 +10,7 @@ import Login from './components/Login/Login';
 import Navbar from './components/Navbar/Navbar';
 import UsersContainer from './components/Users/UsersContainer';
 import { initializeApp } from "./Redux/app-reduser";
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './Redux/redux-store'
 // import { withSuspense } from './hoc/withSuspens';
@@ -61,11 +61,11 @@ let AppContainer = compose(
 
 const SocNetworkApp = (props) => {
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<Provider store={store}>
 				<AppContainer />
 			</Provider>
-		</BrowserRouter>
+		</HashRouter>
 	)
 }
 

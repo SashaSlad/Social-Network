@@ -39,16 +39,15 @@ button:hover {
 .w2,
 .w3 {
 	margin: 23px 15px;
-	font-family: fantasy;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 16px;
-	font-weight: lighter;
+	font-weight: bold;
 	letter-spacing: 1px;
-	color: rgb(73, 78, 215);
+	color: rgb(127, 130, 211);
 }
 
 .button1 {
 	margin: 15px;
-
 }
 
 .paginator {

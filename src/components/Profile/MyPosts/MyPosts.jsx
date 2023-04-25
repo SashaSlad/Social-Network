@@ -13,8 +13,6 @@ const MyPosts = React.memo(props => {
 	// 	return nextProps !== this.nextProps || nextState !== this.nextState;
 	// }
 
-
-	console.log("ypyyoyoyo")
 	let postsElements = props.postsData.map(post => <Post message={post.message} likes={post.likes} id={post.id} />);
 
 	//let newPostElement = React.createRef();
@@ -33,7 +31,6 @@ const MyPosts = React.memo(props => {
 					placeholder='Send post'
 					validate={[required, maxLength10]}
 				/>
-				<br />
 				<button >Add post</button>
 				<button>Remove</button>
 			</form>

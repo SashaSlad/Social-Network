@@ -21,16 +21,19 @@ const ProfileInfo = (props) => {
 			</div>
 			<div className={s.profile}>
 				<img src={props.profile.photos.large} alt="#" />
-				<br />
-				<span>ava + discription</span>
-				<br />
-				<div>{props.profile.aboutMe} </div>
-				<div> ID = {props.profile.userId} </div>
-				<div>{props.profile.fullName} </div>
-				{/* <ProfileStatus status={props.status} updateStatus={props.updateStatus} /> */}
+				{/* <br />
+				<span>Hi! It's my first project on React! I really hope you like it! ♥ </span>
+				<br /> */}
+				<div className={s.info}>
+					<div>Hi! It's my first project on React! I really hope you like it! ♥ </div>
+					<div>{props.profile.aboutMe} </div>
+					<div> ID = {props.profile.userId} </div>
+					<div>{props.profile.fullName} </div>
 
-				<ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
-
+					{/* <ProfileStatus status={props.status} updateStatus={props.updateStatus} /> */}
+					<div>Status (double click to edit):</div>
+					<ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+				</div>
 			</div>
 		</div>
 	)

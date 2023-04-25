@@ -1,11 +1,15 @@
-.myposts{
+.myposts {
 	margin: 15px;
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: 1.3px;
-	color: aquamarine;	
+	color: aquamarine;
 }
 
-.textar{
-	margin: 10px;
+.textar {
+	margin: 10px 100px;
+}
+
+.posts {
+	margin: 30px 10px;
 }
