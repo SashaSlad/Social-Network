@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import p from './Profile.module.css';
-import { getUserProfile, getStatus, updateStatus } from "../../Redux/pofile-reducer";
+import { getUserProfile, getStatus, updateStatus, savePhoto } from "../../Redux/pofile-reducer";
 // import { withRouter } from 'react-router-dom';
 import withRouter from "../Common/withRouter/withRouter";
 
@@ -13,16 +13,15 @@ import { compose } from "redux";
 
 class ProfileContainer extends React.Component {
 
-	componentDidMount() {
-
+	refreshProfile() {
 		let userId = this.props.params.userId;
 		if (!userId) {
-			// userId = this.props.authorizedUserId
-			userId = 14166;
+			userId = this.props.authorizedUserId
+			// userId = 14166;
 			if (!userId) {
 				window.location.replace("/login");
 			}
-			// 27905
+			// 27905   -> my 28218
 			// 27214
 			// 14166
 		}
@@ -30,13 +29,26 @@ class ProfileContainer extends React.Component {
 		this.props.getStatus(userId);
 	}
 
+
+	componentDidMount() {
+		this.refreshProfile();
+	}
+
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		if (this.props.params.userId !== prevProps.params.userId) {
+			this.refreshProfile();
+		}
+	}
+
 	render() {
 		return (
 			<div className={p.content} >
 				<Profile {...this.props}
+					isOwner={!this.props.params.userId}
 					profile={this.props.profile}
 					status={this.props.status}
-					updateStatus={this.props.updateStatus} />
+					updateStatus={this.props.updateStatus}
+					savePhoto={this.props.savePhoto} />
 			</div>
 		)
 	}
@@ -58,4 +70,4 @@ let mapStateToProps = (state) => {
 
 
 // export default connect(mapStateToProps, { getUserProfile })(WitUrlDataContainerComponent);
-export default compose(connect(mapStateToProps, { getUserProfile, getStatus, updateStatus }), withRouter, withAuthRedirect,)(ProfileContainer);
+export default compose(connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto }), withRouter, withAuthRedirect,)(ProfileContainer);

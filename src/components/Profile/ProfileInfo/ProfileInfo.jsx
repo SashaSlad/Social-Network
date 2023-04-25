@@ -3,6 +3,8 @@ import Preloader from "../../Common/Preloader/Preloader";
 import s from "../ProfileInfo/ProfileInfo.module.css";
 // import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import userPhoto from "../../../assets/images/user_avatar.jpg";
+
 
 const ProfileInfo = (props) => {
 
@@ -10,6 +12,12 @@ const ProfileInfo = (props) => {
 		return (
 			<Preloader />
 		)
+	};
+
+	const onMainPhotoSelected = (e) => {
+		if (e.target.files.length) {
+			props.savePhoto(e.target.files[0]);
+		}
 	};
 
 	return (
@@ -20,7 +28,10 @@ const ProfileInfo = (props) => {
 
 			</div>
 			<div className={s.profile}>
-				<img src={props.profile.photos.large} alt="#" />
+				<div>
+					<img src={props.profile.photos.large || userPhoto} alt="#" />
+					{props.isOwner && <input type={"file"} onChange={onMainPhotoSelected} className={s.uploadPhoto}  />}
+				</div>
 				{/* <br />
 				<span>Hi! It's my first project on React! I really hope you like it! ♥ </span>
 				<br /> */}

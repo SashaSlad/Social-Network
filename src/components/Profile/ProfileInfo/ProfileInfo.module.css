@@ -1,19 +1,31 @@
-.img_wrapp img {
+/* .img_wrapp img {
 	width: 100%;
 	height: 150px;
-}
+} */
+
+/* user photo control */
 
 .profile img {
 	border-radius: 45px;
 	margin: 50px 50px 0 50px;
+	width: 350px;
+	height: 350px;
 }
+
+.uploadPhoto {
+	margin: 15px 0 0 70px;
+}
+
+/* .uploadPhoto input{
+	
+} */
 
 .profile {
 	display: flex;
 }
 
 .info {
-	margin: 147px 0 0 0;
+	margin: 147px 100px 0 0;
 }
 
 .profile {
