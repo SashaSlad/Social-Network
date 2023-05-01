@@ -14,7 +14,15 @@ import style from "./../Common/FormsControls/FormsControls.module.css"
 const LoginForm = (props) => {
 	let maxLength30 = maxLengthCreator(30);
 
-	return (
+	return (<>
+		<div className={s.log}>
+			<p>
+				Email: sashachebyrasha16@gmail.com
+				<br/>
+				Password: sasha1604
+			</p>
+		</div>
+		
 		<form onSubmit={props.handleSubmit}>
 			{createField("Email", "email", [required, maxLength30], Input)}
 			{createField("Passwosd", "password", [required, maxLength30], Input, { type: "password" })}
@@ -31,8 +39,9 @@ const LoginForm = (props) => {
 					{props.error}
 				</div>
 			}
-			<div><button>Login</button></div>
+			<div className={s.btn}><button>Login</button></div>
 		</form>
+	</>
 	)
 }
 

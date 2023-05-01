@@ -1,20 +1,29 @@
-.content{
+.content {
 	grid-area: c;
 }
 
-.log{
+.log {
 	display: grid;
 	/* grid-area: c; */
 	background-color: rgb(29, 112, 83);
 	border-radius: 0 0 25px 0;
 }
 
-h1{
+h1 {
 	color: rgb(43, 220, 67);
 	letter-spacing: 1.7px;
-	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.remme{
+
+.remme {
 	display: flex;
 	color: aqua;
+}
+
+.log {
+	color: aquamarine;
+}
+
+.btn {
+	margin: 5px 0 15px 15px;
 }
