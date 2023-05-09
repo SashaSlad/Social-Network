@@ -22,10 +22,12 @@
 
 .profile {
 	display: flex;
+	justify-content: space-around;
 }
 
 .info {
-	margin: 147px 100px 0 0;
+	margin: 100px 100px 0 0;
+	width: 500px;
 }
 
 .profile {
@@ -33,4 +35,8 @@
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	color: antiquewhite;
 	letter-spacing: 1.3px;
+}
+
+.contacts {
+	padding-left: 15px;
 }

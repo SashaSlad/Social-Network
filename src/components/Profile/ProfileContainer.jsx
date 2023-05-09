@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import p from './Profile.module.css';
-import { getUserProfile, getStatus, updateStatus, savePhoto } from "../../Redux/pofile-reducer";
+import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile } from "../../Redux/pofile-reducer";
 // import { withRouter } from 'react-router-dom';
 import withRouter from "../Common/withRouter/withRouter";
 
@@ -70,4 +70,4 @@ let mapStateToProps = (state) => {
 
 
 // export default connect(mapStateToProps, { getUserProfile })(WitUrlDataContainerComponent);
-export default compose(connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto }), withRouter, withAuthRedirect,)(ProfileContainer);
+export default compose(connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile }), withRouter, withAuthRedirect,)(ProfileContainer);
