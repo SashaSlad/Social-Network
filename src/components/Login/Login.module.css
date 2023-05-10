@@ -2,6 +2,13 @@
 	grid-area: c;
 }
 
+.log_container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+}
+
 .log {
 	display: grid;
 	/* grid-area: c; */
@@ -16,6 +23,7 @@ h1 {
 }
 
 .remme {
+	margin: 10px 0;
 	display: flex;
 	color: aqua;
 }

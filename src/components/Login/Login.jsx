@@ -14,38 +14,41 @@ import style from "./../Common/FormsControls/FormsControls.module.css"
 const LoginForm = (props) => {
 	let maxLength30 = maxLengthCreator(30);
 
-	return (<>
-		<div className={s.log}>
-			<p>
-				Email: sashachebyrasha16@gmail.com
-				<br />
-				Password: sasha1604
-			</p>
-		</div>
+	return (
+		<div className={s.log_container}>
 
-		<form onSubmit={props.handleSubmit}>
-			{createField("Email", "email", [required, maxLength30], Input)}
-			{createField("Passwosd", "password", [required, maxLength30], Input, { type: "password" })}
-			<div className={s.remme}>
-				{createField(null, "rememberMe", [], Input, { type: "checkbox" }, "Remember me")}
-			</div>
+			<form onSubmit={props.handleSubmit}>
+				{createField("Email", "email", [required, maxLength30], Input)}
+				{createField("Passwosd", "password", [required, maxLength30], Input, { type: "password" })}
+				<div className={s.remme}>
+					{createField(null, "rememberMe", [], Input, { type: "checkbox" }, "")} <b>Remember me</b>
+				</div>
 
-			{/* 	<div><Field placeholder="Email" name={"email"} component={Input} validate={[required, maxLength30]} /></div>
+				{/* 	<div><Field placeholder="Email" name={"email"} component={Input} validate={[required, maxLength30]} /></div>
 			<div><Field placeholder="Passwosd" name={"password"} component={Input} validate={[required, maxLength30]} type={"password"} /></div>
 			<div className={s.remme}><Field type={"Checkbox"} name={"rememberMe"} component={Input} />Remember me</div> */}
 
-			{props.captchaUrl && <img alt="4" src={props.captchaUrl} />}
-			{props.captchaUrl && createField("Symbols from captcha", "captcha", [required], Input, {})}
+				{props.captchaUrl && <img alt="4" src={props.captchaUrl} />}
+				{props.captchaUrl && createField("Symbols from captcha", "captcha", [required], Input, {})}
 
 
-			{props.error &&
-				<div className={style.formSummaryError}>
-					{props.error}
-				</div>
-			}
-			<div className={s.btn}><button>Login</button></div>
-		</form>
-	</>
+				{props.error &&
+					<div className={style.formSummaryError}>
+						{props.error}
+					</div>
+				}
+				<div className={s.btn}><button>Login</button></div>
+			</form>
+
+			<div className={s.log}>
+				<p>
+					Email: sashachebyrasha16@gmail.com
+					<br />
+					Password: sasha1604
+				</p>
+			</div>
+
+		</div>
 	)
 }
 
