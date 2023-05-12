@@ -68,21 +68,21 @@ const ProfileData = (props) => {
 			<div> ID = {props.profile.userId} </div>
 			<div>
 				<div>
-					<b>Full name:</b>{props.profile.fullName}
+					<b>Full name: </b>{props.profile.fullName}
 				</div>
 				<div>
-					<b>Looking for a job:</b>{props.profile.lookingForAJob ? "yes" : "no"}
+					<b>Looking for a job: </b>{props.profile.lookingForAJob ? "yes" : "no"}
 				</div>
 				{props.profile.lookingForAJob &&
 					<div>
-						<b>My prfessional skills:</b>{props.profile.lookingForAJobDescription}
+						<b>My prfessional skills: </b>{props.profile.lookingForAJobDescription}
 					</div>
 				}
 				<div>
-					<b>About me:</b>{props.profile.aboutMe}
+					<b>About me: </b>{props.profile.aboutMe}
 				</div>
 				<div>
-					<b>Contacts:</b>{Object.keys(props.profile.contacts).map(key => {
+					<b>Contacts: </b>{Object.keys(props.profile.contacts).map(key => {
 						return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]} />
 					})}
 				</div>
