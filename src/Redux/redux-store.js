@@ -1,12 +1,12 @@
 //import { combineReducers } from '@reduxjs/toolkit';
 import { applyMiddleware, combineReducers, compose, legacy_createStore as createStore } from 'redux';
-import profileReducer from "./pofile-reducer";
-import dialogsReducer from "./dialogs-reducer";
-import usersReducer from './users-reducer';
-import authReduser from './auth-reduser';
+import profileReducer from "./pofile-reducer.ts";
+import dialogsReducer from "./dialogs-reducer.ts";
+import usersReducer from './users-reducer.ts';
+import authReduser from './auth-reduser.ts';
 import thunkMiddleware from "redux-thunk";
 import { reducer as formReducer } from "redux-form";
-import appReduser from './app-reduser';
+import appReduser from './app-reduser.ts';
 // import appReduser from './app-reduser';
 
 

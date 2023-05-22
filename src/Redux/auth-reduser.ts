@@ -1,5 +1,5 @@
 import { stopSubmit } from "redux-form";
-import { authAPI, securityAPI } from "../api/api";
+import { authAPI, securityAPI } from "../api/api.js";
 
 const SET_USER_DATA = 'soc-network/auth/SET_USER_DATA';
 const GET_CAPTCHA_URL_SUCCESS = 'soc-network/auth/GET_CAPTCHA_URL_SUCCESS';
@@ -10,7 +10,7 @@ let initialState = {
 	email: null as string | null,
 	login: null as string | null,
 	isAuth: false,
-	captchaUrl: null as string | null
+	captchaUrl: null as string | null,
 };
 
 export type InitialStateType = typeof initialState;

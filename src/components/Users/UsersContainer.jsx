@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers } from "../../Redux/users-reducer";
+import { follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers } from "../../Redux/users-reducer.ts";
 import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsers } from "../../Redux/users-selectors";
 import Preloader from "../Common/Preloader/Preloader";
 import Users from "./Users";

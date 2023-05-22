@@ -1,4 +1,5 @@
-import { getAuthUserData } from "./auth-reduser";
+import { getAuthUserData } from "./auth-reduser.ts";
+
 
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 

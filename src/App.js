@@ -9,10 +9,10 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
 import Navbar from './components/Navbar/Navbar';
 import UsersContainer from './components/Users/UsersContainer';
-import { initializeApp } from "./Redux/app-reduser";
+import { initializeApp } from "./Redux/app-reduser.ts";
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './Redux/redux-store'
+import store from './Redux/redux-store.js';
 // import { withSuspense } from './hoc/withSuspens';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
 // import ProfileContainer from './components/Profile/ProfileContainer';

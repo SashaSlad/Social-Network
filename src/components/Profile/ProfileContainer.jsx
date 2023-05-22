@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import p from './Profile.module.css';
-import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile } from "../../Redux/pofile-reducer";
+import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile } from "../../Redux/pofile-reducer.ts";
 // import { withRouter } from 'react-router-dom';
 import withRouter from "../Common/withRouter/withRouter";
 
