@@ -1,3 +1,4 @@
+import { ProfileType } from './../types/types';
 import axios from "axios";
 
 const instance = axios.create({
@@ -16,19 +17,19 @@ export const usersAPI = {
 		)
 	},
 
-	follow(userId) {
+	follow(userId: number) {
 		return (
 			instance.post(`follow/${userId}`)
 		)
 	},
 
-	unfollow(userId) {
+	unfollow(userId: number) {
 		return (
 			instance.delete(`follow/${userId}`)
 		)
 	},
 
-	getProfile(userId) {
+	getProfile(userId: number) {
 		console.warn('Obsolete method. Please use profileAPI object!');
 		return (
 			profileAPI.getProfile(userId)
@@ -37,22 +38,22 @@ export const usersAPI = {
 }
 
 export const profileAPI = {
-	getProfile(userId) {
+	getProfile(userId: number) {
 		return (
 			instance.get(`profile/` + userId)
 		)
 	},
-	getStatus(userId) {
+	getStatus(userId: number) {
 		return (
 			instance.get(`profile/status/` + userId)
 		)
 	},
-	updateStatus(status) {
+	updateStatus(status: string) {
 		return (
 			instance.put(`profile/status`, { status: status })
 		)
 	},
-	savePhoto(photoFile) {
+	savePhoto(photoFile: any) {
 		const formData = new FormData();
 		formData.append("image", photoFile);
 		return (
@@ -63,7 +64,7 @@ export const profileAPI = {
 			})
 		)
 	},
-	saveProfile(profile) {
+	saveProfile(profile: ProfileType) {
 		return (
 			instance.put(`profile`, profile)
 		)
@@ -71,15 +72,37 @@ export const profileAPI = {
 
 }
 
+
+export enum ResultCodesEnum {
+	Success = 0,
+	Error = 1,
+}
+
+export enum ResultCodeForCaptcha {
+	CaptchaIsRequired = 10
+}
+
+type MeResponseType = {
+	data: { id: number, email: string, login: string }
+	resultCode: ResultCodesEnum
+	messages: Array<string>
+}
+
+type LoginResponseType = {
+	data: { userId: number }
+	resultCode: ResultCodesEnum | ResultCodeForCaptcha
+	userId: Array<string>
+}
+
 export const authAPI = {
 	me() {
 		return (
-			instance.get(`auth/me`)
+			instance.get<MeResponseType>(`auth/me`).then(res => res.data)
 		)
 	},
-	login(email, password, rememberMe = false, captcha = null) {
+	login(email: string, password: string, rememberMe = false, captcha: null | string = null) {
 		return (
-			instance.post(`auth/login`, { email, password, rememberMe, captcha })
+			instance.post<LoginResponseType>(`auth/login`, { email, password, rememberMe, captcha }).then(res => res.data)
 		)
 	},
 	logOut() {
