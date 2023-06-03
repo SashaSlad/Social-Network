@@ -6,7 +6,7 @@ import './App.css';
 import Preloader from './components/Common/Preloader/Preloader';
 import withRouter from './components/Common/withRouter/withRouter';
 import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Login/Login';
+import Login from './components/Login/Login.tsx';
 import Navbar from './components/Navbar/Navbar';
 import UsersContainer from './components/Users/UsersContainer.tsx';
 import { initializeApp } from "./Redux/app-reduser.ts";
