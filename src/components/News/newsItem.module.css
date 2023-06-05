@@ -1,0 +1,21 @@
+
+.news_app {
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	grid-area: c;
+	background-color: rgb(213, 172, 117);
+}
+
+.news_item {
+	width: 500px;
+	padding: 20px;
+	border: 2px solid blueviolet;
+	border-radius: 30px;
+	margin-bottom: 20px;
+	background-color: rgb(47, 230, 230);
+}
+
+.news_img {
+	width: 400px;
+}

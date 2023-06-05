@@ -13,6 +13,7 @@ import { initializeApp } from "./Redux/app-reduser.ts";
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './Redux/redux-store.ts';
+import NewsList from './components/News/NewsList';
 // import { withSuspense } from './hoc/withSuspens';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
 // import ProfileContainer from './components/Profile/ProfileContainer';
@@ -44,6 +45,7 @@ class App extends Component {
 						<Route exact path='/dialogs' element={<Suspense fallback={<div>Loading...</div>} > <DialogsContainer /> </Suspense>} />
 						<Route exact path='/users' element={<UsersContainer />} />
 						<Route exact path='/login' element={<Login />} />
+						<Route exact path='/news' element={<NewsList />} />
 					</Routes>
 				</div>
 			</div>
