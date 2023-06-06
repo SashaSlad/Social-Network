@@ -1,0 +1,19 @@
+.wrapper {
+	grid-area: c;
+	background-color: rgb(69, 154, 154);
+	border-radius: 15px;
+	padding: 15px;
+}
+
+.info {
+	margin: 23px 15px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: rgb(5, 8, 97);
+}
+
+.content{
+	display: flex;
+}

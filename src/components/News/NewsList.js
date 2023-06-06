@@ -10,7 +10,7 @@ const NewsList = () => {
 		const getArticles = async () => {
 			const response = await axios.get(`https://newsapi.org/v2/everything?q=ukraine&apiKey=04eab81cc14746899bd31f7ea301319f`)
 			setArticles(response.data.articles)
-			console.log(response)
+			// console.log(response)
 		}
 
 		getArticles()

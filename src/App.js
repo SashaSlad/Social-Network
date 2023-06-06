@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 import store from './Redux/redux-store.ts';
 import NewsList from './components/News/NewsList';
 import Registration from './components/Registration/Registration';
+import Friends from './components/Friends/Friends';
 // import { withSuspense } from './hoc/withSuspens';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
 // import ProfileContainer from './components/Profile/ProfileContainer';
@@ -48,6 +49,8 @@ class App extends Component {
 						<Route exact path='/login' element={<Login />} />
 						<Route exact path='/news' element={<NewsList />} />
 						<Route exact path='/registration' element={<Registration />} />
+						<Route exact path='/friends' element={<Friends />} />
+
 					</Routes>
 				</div>
 			</div>
