@@ -9,6 +9,9 @@ import { login } from "../../Redux/auth-reduser.ts";
 import { useNavigate } from "react-router-dom";
 import style from "./../Common/FormsControls/FormsControls.module.css";
 import { AppStateType } from "../../Redux/redux-store.ts"
+import { NavLink } from "react-router-dom";
+
+
 
 type LoginFormOwnProps = {
 	captchaUrl: string | null
@@ -40,7 +43,10 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
 						{props.error}
 					</div>
 				}
-				<div className={s.btn}><button>Login</button></div>
+				<div className={s.btns}>
+					<div className={s.btn}><button>Login</button></div>
+					<div className={s.btn}><button><NavLink to='/registration' className={s.btnReg}>Registration</NavLink></button></div>
+				</div>
 			</form>
 
 			<div className={s.log}>

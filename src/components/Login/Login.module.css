@@ -32,6 +32,15 @@ h1 {
 	color: aquamarine;
 }
 
+.btns {
+	display: flex;
+	justify-content: space-between;
+}
+
 .btn {
 	margin: 5px 0 15px 15px;
+}
+
+.btnReg {
+	text-decoration: none;
 }

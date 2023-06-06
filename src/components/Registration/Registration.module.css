@@ -1,0 +1,109 @@
+.wrapper {
+	position: relative;
+	grid-area: c;
+	background: #b78282;
+	padding: 34px;
+	border-radius: 6px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	text-align: center;
+}
+
+.input_name {
+	width: 5px;
+}
+
+.wrapper h2 {
+	position: relative;
+	font-size: 22px;
+	font-weight: 600;
+	color: #333;
+}
+
+.wrapper h2::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 28px;
+	border-radius: 12px;
+	/* background: #4070f4; */
+}
+
+.wrapper form {
+	margin-top: 30px;
+}
+
+.wrapper form .input_box {
+	height: 52px;
+	margin: 18px 0;
+}
+
+form .input_box input {
+	height: 100%;
+	width: 30%;
+	outline: none;
+	padding: 0 15px;
+	font-size: 17px;
+	font-weight: 400;
+	color: #333;
+	border: 1.5px solid #C7BEBE;
+	border-bottom-width: 2.5px;
+	border-radius: 6px;
+	transition: all 0.3s ease;
+	/* display: flex;
+	justify-content: center; */
+}
+
+.input_box input:focus,
+.input_box input:valid {
+	border-color: #4070f4;
+}
+
+form .policy {
+	display: inline-flex;
+	/* align-items: center;  */
+	text-align: center;
+}
+
+form h3 {
+	color: #57340c;
+	font-size: 14px;
+	font-weight: 500;
+	margin-left: 10px;
+}
+
+.inputbutton input {
+	color: #500d0d;
+	letter-spacing: 1px;
+	border: none;
+	background: #4070f4;
+	cursor: pointer;
+}
+
+.inputbutton input:hover {
+	background: #0e4bf1;
+}
+
+form .text h3 {
+	color: #4e2727;
+	width: 100%;
+	text-align: center;
+}
+
+form .text h3 a {
+	color: #4070f4;
+	text-decoration: none;
+}
+
+form .text h3 a:hover {
+	text-decoration: underline;
+}
+
+.btnReg {
+	text-decoration: none;
+}
+
+/* .text {
+	display: inline-block;  --> доробити!
+} */
