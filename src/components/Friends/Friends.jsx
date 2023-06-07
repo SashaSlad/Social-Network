@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import s from "./friends.module.css"
+import s from "./friends.module.css";
 import { NavLink } from "react-router-dom";
-import styles from "../Users/users.module.css"
+import styles from "../Users/users.module.css";
 import userPhoto from "../../assets/images/user_avatar.jpg";
-import { follow, unfollow } from "../../Redux/users-reducer.ts";
+import { follow, unfollow, requestUsers } from "../../Redux/users-reducer.ts";
+import { connect } from 'react-redux';
 
-
-
-const Friends = () => {
+const Friends = (props) => {
 	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
@@ -21,7 +20,7 @@ const Friends = () => {
 					},
 					params: {
 						page: 1,
-						count: 7,
+						count: 100,
 						followed: true
 					}
 				});
@@ -34,57 +33,50 @@ const Friends = () => {
 		fetchData();
 	}, []);
 
+	const handleFollow = (userId) => {
+		props.follow(userId);
+	};
+
+	const handleUnfollow = (userId) => {
+		props.unfollow(userId);
+		setUsers(users.filter(user => user.id !== userId));
+	};
 
 	return (
-		// <div className={s.wrapper}>
-		// 	{users.map(user => (
-		// 		<div key={user.id}>
-		// 			<p>Name: {user.name}</p>
-		// 			<p>ID: {user.id}</p>
-		// 			<p>Followed: {user.followed.toString()}</p>
-		// 			{/* <p>Followed: {setUsers(response.data.items.filter(item => item.followed === true))} </p> */}
-
-		// 			<hr />
-		// 		</div>
-		// 	))}
-		// </div>
-
-
 		<div className={s.wrapper}>
+			<div className={s.totalfrnds}>Total Friends: {users.length}</div>
 			{users.map(user => (
 				<div className={s.content} key={user.id}>
-
-					<div className={styles.w1}>
-						<div>
+					<div className={s.photobutton}>
+						<div className={s.photoinfo}>
 							<NavLink to={'/profile/' + user.id}>
 								<img src={user.photos.small != null ? user.photos.small : userPhoto} className={styles.userPhoto} alt="" />
 							</NavLink>
 						</div>
 						<div className={styles.buttoncenter}>
 							{user.followed
-								? <button onClick={() => { unfollow(user.id) }}>Unfollow</button>
-								: <button onClick={() => { follow(user.id) }}>Follow</button>}
+								? <button onClick={() => handleUnfollow(user.id)}>Unfollow</button>
+								: <button onClick={() => handleFollow(user.id)}>Follow</button>}
 						</div>
 					</div>
-
 					<div className={s.info}>
 						<p>Name: {user.name}</p>
 						<p>ID: {user.id}</p>
 						<p>Followed: {user.followed.toString()}</p>
 						<p>Status: {user.status}</p>
-						{/* <p>Followed: {setUsers(response.data.items.filter(item => item.followed === true))} </p> */}
 					</div>
-
-					<hr />
 				</div>
 			))}
 		</div>
 	);
 };
 
+const mapStateToProps = (state) => ({
+	users: state.users.users,
+	currentPage: state.users.currentPage,
+	pageSize: state.users.pageSize,
+});
+
+export default connect(mapStateToProps, { follow, unfollow, requestUsers })(Friends);
 
 
-
-
-
-export default Friends;

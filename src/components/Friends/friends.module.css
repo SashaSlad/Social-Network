@@ -14,6 +14,27 @@
 	color: rgb(5, 8, 97);
 }
 
-.content{
+.content {
 	display: flex;
+	border: 3px solid salmon;
+	border-radius: 7px;
+	margin: 5px;
+	width: 50%;
+	align-items: center;
+	padding-left: 30px;
+	/* justify-content: center; */
+}
+
+.photobutton {}
+
+/* .photoinfo{
+	margin-right: 30px;
+} */
+
+.totalfrnds {
+	color: aquamarine;
+	font-size: 16px;
+	font-weight: 500;
+	font-family: monospace;
+	padding: 7px;
 }
