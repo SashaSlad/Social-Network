@@ -3,9 +3,16 @@ import { profileAPI, usersAPI } from "../api/api.ts";
 import { PhotosType, PostType, ProfileType } from "../types/types";
 
 const ADD_POST = 'ADD-POST';
+
+//----------------------
+const LIKE_POST = 'LIKE_POST';
+const DISLIKE_POST = 'DISLIKE_POST';
+const DELETE_POST = 'DELETE_POST';
+//----------------------
+
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
-const DELETE_POST = 'DELETE_POST';
+// const DELETE_POST = 'DELETE_POST';
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 
 
@@ -24,18 +31,32 @@ export type InitialStateType = typeof initialState;
 
 const profileReducer = (state = initialState, action: any): InitialStateType => {
 	switch (action.type) {
-		case ADD_POST: {
-			let newPost = {
-				id: 4,
-				message: action.newPostText,
-				likes: 0,
-			};
+		// case ADD_POST: {
+		// 	let newPost = {
+		// 		id: 4,
+		// 		message: action.newPostText,
+		// 		likes: 0,
+		// 	};
+
+		case ADD_POST:
 			return {
 				...state,
-				postsData: [...state.postsData, newPost],
-				newPostText: '',
+				postsData: [
+					...state.postsData,
+					{
+						id: state.postsData.length + 1,
+						message: action.newPostText,
+						likes: 0
+					}
+				]
 			};
-		}
+
+		// 		return {
+		// 			...state,
+		// 			postsData: [...state.postsData, newPost],
+		// 			newPostText: '',
+		// 		};
+		// }
 
 		case SET_USER_PROFILE: {
 			return {
@@ -51,13 +72,34 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
 			};
 		}
 
-		case DELETE_POST: {
+		// 		case DELETE_POST: {
+		// 	return {
+		// 		...state,
+		// 		postsData: state.postsData.filter(p => p.id !== action.postId)
+		// 	};
+		// }
+
+		//------------------------------
+		case LIKE_POST:
 			return {
 				...state,
-				postsData: state.postsData.filter(p => p.id !== action.postId)
+				postsData: state.postsData.map((post) =>
+					post.id === action.postId ? { ...post, likes: post.likes + 1 } : post
+				)
 			};
-		}
-
+		case DISLIKE_POST:
+			return {
+				...state,
+				postsData: state.postsData.map((post) =>
+					post.id === action.postId ? { ...post, likes: post.likes - 1 } : post
+				)
+			};
+		case DELETE_POST:
+			return {
+				...state,
+				postsData: state.postsData.filter((post) => post.id !== action.postId)
+			};
+		///----------------------------------
 		case SAVE_PHOTO_SUCCESS: {
 			return {
 				...state,
@@ -100,7 +142,22 @@ type SavePhotoSuccessActionType = {
 }
 export const savePhotoSuccess = (photos: PhotosType): SavePhotoSuccessActionType => ({ type: SAVE_PHOTO_SUCCESS, photos });
 
+//----------------------------------------
+export const likePostActionCreator = (postId) => ({
+	type: LIKE_POST,
+	postId
+});
 
+export const dislikePostActionCreator = (postId) => ({
+	type: DISLIKE_POST,
+	postId
+});
+
+export const deletePostActionCreator = (postId) => ({
+	type: DELETE_POST,
+	postId
+});
+//----------------------------------------
 
 // ----- sunk -----
 
