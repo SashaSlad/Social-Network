@@ -40,3 +40,44 @@
 .contacts {
 	padding-left: 15px;
 }
+
+.editbtn {
+	margin: 10px;
+}
+
+.cont {
+	margin: 10px 0 10px 0;
+}
+
+/* ---------------- */
+
+.uploadPhoto {
+	display: none;
+	/* Приховуємо сам елемент <input> */
+}
+
+.uploadPhotoLabel {
+	display: inline-block;
+	margin: 10px 0px 10px 100px;
+	padding: 10px 20px;
+	background-color: #eaeaea;
+	color: #333;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.uploadPhotoLabel:hover {
+	background-color: #ccc;
+}
+
+.uploadPhotoLabel:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px #333;
+	/* При фокусуванні на кнопці, додаємо рамку */
+}
+
+.uploadPhotoLabel:active {
+	background-color: #999;
+	/* При натисканні на кнопку, змінюємо колір фону */
+}

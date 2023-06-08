@@ -46,7 +46,7 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
 					{
 						id: state.postsData.length + 1,
 						message: action.newPostText,
-						likes: 0
+						likes: 7
 					}
 				]
 			};

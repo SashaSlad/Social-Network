@@ -43,10 +43,26 @@ const ProfileInfo = (props) => {
 
 			</div>
 			<div className={s.profile}>
-				<div>
+				{/* <div>
 					<img src={props.profile.photos.large || userPhoto} alt="#" />
 					{props.isOwner && <input type={"file"} onChange={onMainPhotoSelected} className={s.uploadPhoto} />}
+				</div> */}
+
+				<div>
+					<img src={props.profile.photos.large || userPhoto} alt="#" />
+					{props.isOwner && (
+						<label htmlFor="photo-input" className={s.uploadPhotoLabel}>
+							<span className={s.uploadButtonLabel}>Завантажити фото</span>
+							<input
+								type="file"
+								id="photo-input"
+								onChange={onMainPhotoSelected}
+								className={s.uploadPhoto}
+							/>
+						</label>
+					)}
 				</div>
+
 
 				<div className={s.info}>
 					{/* <div>Hi! It's my first project on React! I really hope you like it! ♥ </div> */}
@@ -64,28 +80,33 @@ const ProfileInfo = (props) => {
 const ProfileData = (props) => {
 	return (
 		<>
-			{props.isOwner && <div><button onClick={props.goToEditMode}>Edit:</button></div>}
+			{/* {props.isOwner && <div><button onClick={props.goToEditMode}>Edit:</button></div>} */}
 			<div> ID = {props.profile.userId} </div>
-			<div>
-				<div>
+			<div className={s.infos}>
+				<div className={s.cont}>
 					<b>Full name: </b>{props.profile.fullName}
 				</div>
-				<div>
+				<div className={s.cont}>
 					<b>Looking for a job: </b>{props.profile.lookingForAJob ? "yes" : "no"}
 				</div>
 				{props.profile.lookingForAJob &&
-					<div>
+					<div className={s.cont}>
 						<b>My prfessional skills: </b>{props.profile.lookingForAJobDescription}
 					</div>
 				}
-				<div>
+				<div className={s.cont}>
 					<b>About me: </b>{props.profile.aboutMe}
 				</div>
-				<div>
+				<div className={s.cont}>
 					<b>Contacts: </b>{Object.keys(props.profile.contacts).map(key => {
 						return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]} />
+
 					})}
 				</div>
+				<div className={s.editbtn}>
+					{props.isOwner && <div><button onClick={props.goToEditMode}>Edit</button></div>}
+				</div>
+
 			</div>
 		</>
 	)

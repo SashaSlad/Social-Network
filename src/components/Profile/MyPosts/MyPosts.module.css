@@ -15,13 +15,15 @@
 }
 
 .textarea {
-	margin: 15px;
+	margin: 15px 0 0 60px;
 	width: 30%;
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 }
 
-.addpostbtn{
-	margin-left: 23%;
+.addpostbtn {
+
+	margin-top: 10px;
+	margin-left: 27%;
 }

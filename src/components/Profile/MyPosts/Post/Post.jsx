@@ -134,9 +134,9 @@ const Post = (props) => {
 			</div>
 
 			<div className={s.btns}>
-				<button onClick={handleLike}>Like</button>
-				<button onClick={handleDislike}>Dislike</button>
-				<button onClick={handleDelete}>Delete</button>
+				<button onClick={handleLike}>💓</button>
+				<button onClick={handleDislike}>👎</button>
+				<button className={s.trashbtn} onClick={handleDelete}>Delete&#128465;</button>
 			</div>
 		</div >
 
