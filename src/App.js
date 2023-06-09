@@ -16,6 +16,7 @@ import store from './Redux/redux-store.ts';
 import NewsList from './components/News/NewsList';
 import Registration from './components/Registration/Registration';
 import Friends from './components/Friends/Friends';
+import ChatPage from './pages/Chat/ChatPage.tsx';
 // import { withSuspense } from './hoc/withSuspens';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
 // import ProfileContainer from './components/Profile/ProfileContainer';
@@ -23,7 +24,7 @@ import Friends from './components/Friends/Friends';
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
-
+// const CahtPage = React.lazy(() => import('./pages/Chat/ChatPage.tsx'));
 
 
 class App extends Component {
@@ -45,6 +46,7 @@ class App extends Component {
 						<Route exact path='/profile/:userId' element={<Suspense fallback={<div>Loading...</div>} ><ProfileContainer /></Suspense>} />
 						<Route exact path='*' element={<Suspense fallback={<div>Loading...</div>} ><ProfileContainer /></Suspense>} />
 						<Route exact path='/dialogs' element={<Suspense fallback={<div>Loading...</div>} > <DialogsContainer /> </Suspense>} />
+						<Route exact path='/chat' element={<ChatPage />} />
 						<Route exact path='/users' element={<UsersContainer />} />
 						<Route exact path='/login' element={<Login />} />
 						<Route exact path='/news' element={<NewsList />} />

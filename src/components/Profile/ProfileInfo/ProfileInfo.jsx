@@ -52,7 +52,7 @@ const ProfileInfo = (props) => {
 					<img src={props.profile.photos.large || userPhoto} alt="#" />
 					{props.isOwner && (
 						<label htmlFor="photo-input" className={s.uploadPhotoLabel}>
-							<span className={s.uploadButtonLabel}>Завантажити фото</span>
+							<span className={s.uploadButtonLabel}>Add new photo</span>
 							<input
 								type="file"
 								id="photo-input"

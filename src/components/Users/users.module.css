@@ -1,6 +1,7 @@
 .wrapper {
 	grid-area: c;
 	background-color: rgb(25, 91, 69);
+	border-radius: 0 0 25px 0;
 }
 
 .userPhoto {
@@ -33,7 +34,6 @@ button:hover {
 } */
 .wflex {
 	display: flex;
-
 }
 
 .w2,
