@@ -17,6 +17,11 @@ import NewsList from './components/News/NewsList';
 import Registration from './components/Registration/Registration';
 import Friends from './components/Friends/Friends';
 import ChatPage from './pages/Chat/ChatPage.tsx';
+import SportList from './components/News/SportNews/SportList';
+import UkraineList from './components/News/UkraineNewses/UkraineList';
+import USANewsList from './components/News/USANews/USANewsList';
+import AnimalsNewsList from './components/News/AnimalsNews/AnimalsNewsList';
+import ScienceNewsList from './components/News/ScienceNews/ScienceNewsList';
 // import { withSuspense } from './hoc/withSuspens';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
 // import ProfileContainer from './components/Profile/ProfileContainer';
@@ -52,6 +57,17 @@ class App extends Component {
 						<Route exact path='/news' element={<NewsList />} />
 						<Route exact path='/registration' element={<Registration />} />
 						<Route exact path='/friends' element={<Friends />} />
+
+						<Route exact path='/news/sport' element={<SportList />} />
+						<Route exact path='/news/ukraine' element={<UkraineList />} />
+						<Route exact path='/news/usa' element={<USANewsList />} />
+						<Route exact path='/news/animals' element={<AnimalsNewsList />} />
+						<Route exact path='/news/science' element={<ScienceNewsList />} />
+
+
+
+
+
 
 					</Routes>
 				</div>

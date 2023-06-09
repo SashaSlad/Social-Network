@@ -7,7 +7,7 @@
 
 .chatItems {
 	grid-area: c;
-	background-color: #ca6b6b;
+	background-color: #834848;
 	border-radius: 0px 0px 30px 0px;
 }
 
@@ -30,16 +30,16 @@
 
 }
 
-::-webkit-scrollbar {
+.messagesitems::-webkit-scrollbar {
 	width: 16px;
 }
 
-::-webkit-scrollbar-track {
+.messagesitems::-webkit-scrollbar-track {
 	background-color: #e4e4e4;
 	border-radius: 100px;
 }
 
-::-webkit-scrollbar-thumb {
+.messagesitems::-webkit-scrollbar-thumb {
 	background-color: #d4aa70;
 	border-radius: 100px;
 }

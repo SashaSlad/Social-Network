@@ -67,7 +67,7 @@ const Message: React.FC<{ message: ChatMessageType }> = React.memo(({ message })
 	return (
 		<div className={s.messageWrapper}>
 			<div className={s.userInfo}>
-				<img alt="#" src={message.photo} className={s.imgLogo} /> 
+				<img alt="#" src={message.photo} className={s.imgLogo} />
 				<div className={s.messUser}>{message.userName}</div>
 			</div>
 			<div className={s.messageText}>

@@ -1,0 +1,67 @@
+.wrapper{
+	color: #333;
+}
+.burgerMenu {
+	position: relative;
+}
+
+.menuButton {
+	background: none;
+	border: none;
+	font-family: fantasy;
+	letter-spacing: 1px;
+	font-size: 20px;
+	color: rgb(22, 163, 163);
+	font-weight: 500;
+	cursor: pointer;
+	text-decoration: underline;
+
+}
+
+.menuButton:hover {
+	background: none;
+}
+
+.item a{
+	text-decoration: none;
+	color: #333;
+}
+
+.menuItems {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	list-style: none;
+	padding: 0;
+	margin: 10px 0;
+	background-color: #da5656;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	color: #333;
+	margin-right: 30px;
+}
+
+.menuItems li {
+	padding: 10px;
+}
+
+.menuItems li a {
+	color: #333;
+	text-decoration: none;
+}
+
+
+.item{
+	font-family: fantasy;
+	margin: 15px 15px 5px 15px;
+	letter-spacing: 1px;
+	font-size: 20px;
+}
+.item a{
+	color: rgb(25, 83, 134);
+}
+
+a.activeclass{
+	color: rgb(22, 112, 112);
+	font-weight: 500;
+}

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import NewsItem from './NewsItem'
+import AnimalsNews from './AnimalsNews'
 
 
-const NewsList = () => {
+const AnimalsNewsList = () => {
 	const [articles, setArticles] = useState([])
 
 	useEffect(() => {
 		const getArticles = async () => {
-			const response = await axios.get(`https://newsapi.org/v2/everything?q=all&apiKey=04eab81cc14746899bd31f7ea301319f`)
+			const response = await axios.get(`https://newsapi.org/v2/everything?q=animals&apiKey=04eab81cc14746899bd31f7ea301319f`)
 			setArticles(response.data.articles)
 			// console.log(response)
 		}
@@ -19,7 +19,7 @@ const NewsList = () => {
 		<div>
 			{articles.map(article => {
 				return (
-					<NewsItem
+					<AnimalsNews
 						title={article.title}
 						description={article.description}
 						url={article.url}
@@ -31,4 +31,4 @@ const NewsList = () => {
 	)
 }
 
-export default NewsList
+export default AnimalsNewsList
