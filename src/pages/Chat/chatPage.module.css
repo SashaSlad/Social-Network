@@ -1,4 +1,143 @@
-.imgLogo{
-	width: 30px;
+.imgLogo {
+	width: 50px;
+	height: 50px;
+	border-radius: 30px;
+	border: #007bff solid 3px;
+}
+
+.chatItems {
+	grid-area: c;
+	background-color: #ca6b6b;
+	border-radius: 0px 0px 30px 0px;
+}
+
+.messagesitems {
+	height: 500px;
+	width: 500px;
+	margin: 0 auto;
+	/* justify-content: center; */
+	overflowY: auto;
+	/* background-color: #fff; */
+	background-image: url(../../assets/images/chat.png);
+	border: 3px solid royalblue;
+	border-radius: 12px;
+	padding: 35px;
+	/* width: 500px; */
+}
+
+.chat {
+	padding: 35px;
+
+}
+
+::-webkit-scrollbar {
+	width: 16px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #e4e4e4;
+	border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #d4aa70;
+	border-radius: 100px;
+}
+
+.addmessageForm {
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+}
+
+/* 
+.sendmes {
+	width: 100%;
 	height: 30px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+
+.sendmes:focus {
+	outline: none;
+	border-color: #007bff;
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+} */
+.addmessageForm {
+	margin-top: 20px;
+	display: flex;
+	/* align-items: flex-start; */
+	/* justify-content: space-around; */
+}
+
+.sendmes {
+	flex: 1;
+	min-height: 30px;
+	width: 350px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+	font-size: 14px;
+	line-height: 1.5;
+	/* margin: 15px; */
+}
+
+.sendmes:focus {
+	outline: none;
+	border-color: #007bff;
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.sendbtn {
+	padding: 10px 20px;
+	margin-left: 50px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-top: 10%;
+}
+
+.sendbtn:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+
+.messageText {
+	font-size: 25px;
+	background-color: rgba(141, 141, 234, 0.5);
+	border-radius: 30px 0 30px 0;
+	padding: 10px;
+	text-align: center;
+	width: 250px;
+	color: green;
+	font-weight: 900;
+}
+
+.messageWrapper {
+	display: flex;
+	align-items: center;
+	margin: 15px;
+}
+
+.userInfo {
+	display: flex;
+	width: 150px;
+}
+
+.messUser {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 7px;
+	font-weight: 900;
+	color: rgb(16, 70, 52);
+	/* Other styles */
 }

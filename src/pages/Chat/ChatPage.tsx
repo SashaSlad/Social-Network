@@ -25,12 +25,12 @@ const Chat: React.FC = () => {
 	}, [dispatch]) // не впевнений на рахунок цього діспатч
 
 	return (
-		<div>
+		<div className={s.chatItems}>
 			{status === 'error' && <div>Some Error occured. Please refresh the page </div>}
-			<>
+			<div className={s.chat}>
 				<Messages />
 				<AddMessageForm />
-			</>
+			</div>
 
 		</div>
 	)
@@ -56,7 +56,7 @@ const Messages: React.FC = () => {
 	}, [messages])
 
 	return (
-		<div style={{ height: '500px', overflowY: 'auto' }} onScroll={scrollHandler}>
+		<div className={s.messagesitems} style={{ height: '500px', overflowY: 'auto' }} onScroll={scrollHandler}>
 			{messages.map((m, index) => <Message key={m.id} message={m} />)}
 			<div ref={messagesAnchorRef}></div>
 		</div>
@@ -65,11 +65,12 @@ const Messages: React.FC = () => {
 
 const Message: React.FC<{ message: ChatMessageType }> = React.memo(({ message }) => {
 	return (
-		<div>
-			<div>
-				<img alt="#" src={message.photo} className={s.imgLogo} /> <b>{message.userName}</b>
+		<div className={s.messageWrapper}>
+			<div className={s.userInfo}>
+				<img alt="#" src={message.photo} className={s.imgLogo} /> 
+				<div className={s.messUser}>{message.userName}</div>
 			</div>
-			<div>
+			<div className={s.messageText}>
 				{message.message}
 			</div>
 			<hr />
@@ -92,12 +93,12 @@ const AddMessageForm: React.FC = () => {
 	}
 
 	return (
-		<div>
+		<div className={s.addmessageForm}>
 			<div>
-				<textarea onChange={(e) => setMessage(e.currentTarget.value)} value={message}></textarea>
+				<textarea className={s.sendmes} onChange={(e) => setMessage(e.currentTarget.value)} value={message}></textarea>
 			</div>
 			<div>
-				<button disabled={status !== 'ready'} onClick={sendMessageHandler}>Send</button>
+				<button className={s.sendbtn} disabled={status !== 'ready'} onClick={sendMessageHandler}>Send</button>
 			</div>
 		</div>
 	)
