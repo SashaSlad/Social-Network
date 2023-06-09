@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { ChatMessageType } from "../../api/chat-api"
@@ -17,7 +17,6 @@ const Chat: React.FC = () => {
 	const dispatch = useDispatch()
 	const status = useSelector((state: any) => state.chat.status)
 
-
 	useEffect(() => {
 		dispatch(startMessagesListening())
 		return () => {
@@ -27,27 +26,44 @@ const Chat: React.FC = () => {
 
 	return (
 		<div>
-			{status === 'error' ? <div>Some Error occured. Please refresh the page </div> :
-				<>
-					<Messages />
-					<AddMessageForm />
-				</>
-			}
+			{status === 'error' && <div>Some Error occured. Please refresh the page </div>}
+			<>
+				<Messages />
+				<AddMessageForm />
+			</>
+
 		</div>
 	)
 }
 
 const Messages: React.FC = () => {
 	const messages = useSelector((state: any) => state.chat.messages)
+	const messagesAnchorRef = useRef<HTMLDivElement>(null);
+	const [isAutoIsScroll, setIsAutoScroll] = useState(true)
+	const scrollHandler = (e: React.UIEvent<HTMLDivElement>) => {
+		const element = e.currentTarget;
+		if (Math.abs((element.scrollHeight - element.scrollTop) - element.clientHeight) < 300) {
+			!isAutoIsScroll && setIsAutoScroll(true)
+		} else {
+			!isAutoIsScroll && setIsAutoScroll(false)
+		}
+	}
+
+	useEffect(() => {
+		if (isAutoIsScroll) {
+			messagesAnchorRef.current?.scrollIntoView({ behavior: 'smooth' })
+		}
+	}, [messages])
 
 	return (
-		<div style={{ height: '500px', overflowY: 'auto' }}>
-			{messages.map((m, index) => <Message key={index} message={m} />)}
+		<div style={{ height: '500px', overflowY: 'auto' }} onScroll={scrollHandler}>
+			{messages.map((m, index) => <Message key={m.id} message={m} />)}
+			<div ref={messagesAnchorRef}></div>
 		</div>
 	)
 }
 
-const Message: React.FC<{ message: ChatMessageType }> = ({ message }) => {
+const Message: React.FC<{ message: ChatMessageType }> = React.memo(({ message }) => {
 	return (
 		<div>
 			<div>
@@ -59,7 +75,7 @@ const Message: React.FC<{ message: ChatMessageType }> = ({ message }) => {
 			<hr />
 		</div >
 	)
-}
+})
 
 const AddMessageForm: React.FC = () => {
 	const [message, setMessage] = useState('')
