@@ -53,7 +53,7 @@ const Messages: React.FC = () => {
 		if (isAutoIsScroll) {
 			messagesAnchorRef.current?.scrollIntoView({ behavior: 'smooth' })
 		}
-	}, [messages])
+	}, [messages,isAutoIsScroll])
 
 	return (
 		<div className={s.messagesitems} style={{ height: '500px', overflowY: 'auto' }} onScroll={scrollHandler}>

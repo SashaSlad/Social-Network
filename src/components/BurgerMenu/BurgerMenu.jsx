@@ -22,9 +22,7 @@ const BurgerMenu = () => {
 			{isMenuOpen && (
 				<div className={s.wrapper}>
 					<div className={s.menuItems}>
-						<div className={s.item}>
-							<NavLink to='/news/sport' className={setActive}>Sport</NavLink>
-						</div>
+
 						<div className={s.item}>
 							<NavLink to='/news/ukraine' className={setActive}>Ukraine</NavLink>
 						</div>
@@ -32,12 +30,16 @@ const BurgerMenu = () => {
 							<NavLink to='/news/usa' className={setActive}>USA</NavLink>
 						</div>
 						<div className={s.item}>
-							<NavLink to='/news/animals' className={setActive}>Animals</NavLink>
-						</div>
-						<div className={s.item}>
 							<NavLink to='/news/science' className={setActive}>Science</NavLink>
 						</div>
-						{/* Add more menu items here */}
+						<div className={s.item}>
+							<NavLink to='/news/sport' className={setActive}>Sport</NavLink>
+						</div>
+						<div className={s.item}>
+							<NavLink to='/news/animals' className={setActive}>Animals</NavLink>
+						</div>
+
+						<span className={n.item}></span>
 					</div>
 				</div>
 			)

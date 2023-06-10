@@ -103,6 +103,7 @@ const chatReducer = (state = initialState, action: ActionsType) => {
 				...state,
 				messages: [...state.messages, ...action.payload.messages.map(m => ({ ...m, id: uuidv4() }))]
 					.filter((m, index, array) => index >= array.length - 100)
+				// messages: [...state.messages, ...action.payload.messages]
 			};
 		case 'SN/chat/STATUS_CHANGED':
 			return {
